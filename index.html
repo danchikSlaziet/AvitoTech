@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./main.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <title>AVITO.TECH</title>
+</head>
+<body>
+  <div class="first-page first-page_active">
+    <img class="first-page__logo" src="./assets/images/first-page-logo.png" alt="">
+    <div class="loading-wrapper">
+      <div class="loading-wrapper__progress"></div>
+    </div>
+  </div>
+  <div class="final-page">
+    <img class="final-page__left-img" src="./assets/images/final-left-img.png" alt="">
+    <img class="final-page__right-img" src="./assets/images/final-right-img.png" alt="">
+    <img class="final-page__main-img" src="./assets/images/final-page-main-img.png" alt="">
+    <p class="final-page__title">
+      Вы&nbsp;подписались<br>на&nbsp;уведомления
+    </p>
+    <p class="final-page__subtitle">
+      Теперь, вы&nbsp;получаете уведомления 
+      по&nbsp;выбранным категориям, вы&nbsp;можете выбрать удобное время
+    </p>
+    <div class="final-page__buttons">
+      <button type="button" class="final-page__button final-page__button_time">
+        Выбрать время
+      </button>
+      <button type="button" class="final-page__button final-page__button_exit">
+        Вернуться назад
+      </button>
+    </div>
+  </div>
+  <div class="overlay">
+    <div class="overlay__content">
+      <img class="overlay-close" src="./assets/images/close-img.svg" alt="">
+      <p class="overlay__title">
+        Выберите удобное время<br>для уведомлений
+      </p>
+      <div class="overlay__checkboxes">
+        <div class="overlay__checkbox">
+          Мгновенно
+          <img class="overlay__checkbox-arrow" src="./assets/images/overlay-checkbox-arrow.svg" alt="">
+        </div>
+        <div class="overlay__checkbox">
+          Утро (10:00)
+          <img class="overlay__checkbox-arrow" src="./assets/images/overlay-checkbox-arrow.svg" alt="">
+        </div>
+        <div class="overlay__checkbox">
+          День (14:00)
+          <img class="overlay__checkbox-arrow" src="./assets/images/overlay-checkbox-arrow.svg" alt="">
+        </div>
+        <div class="overlay__checkbox">
+          Вечер (19:00)
+          <img class="overlay__checkbox-arrow" src="./assets/images/overlay-checkbox-arrow.svg" alt="">
+        </div>
+      </div>
+      <button class="overlay__button" type="button">
+        Сохранить
+      </button>
+    </div>
+  </div>
+  <div class="second-page">
+    <div class="second-page__navbar navbar">
+      <p class="navbar__title">
+        Выберите темы,<br>которые вам интересны
+      </p>
+      <p class="navbar__subtitle">
+        именно по ним мы и будем<br>присылать вам уведомления
+      </p>
+      <img class="navbar__help-1" src="./assets/images/navbar-help-img-1.png" alt="">
+      <img class="navbar__help-2" src="./assets/images/navbar-help-img-2.png" alt="">
+      <img class="navbar__time" src="./assets/images/navbar-time.svg" alt="">
+    </div>
+    <div class="second-page__main main">
+      <div class="main__bar">
+        <div class="main__bar-item main__bar-item_active">
+          Новости
+        </div>
+        <div class="main__bar-item">
+          Вакансии
+        </div>
+      </div>
+      <div class="main__news news">
+        <div class="news__item">
+          <p class="news__item-title">
+            QA и Security
+          </p>
+          <div class="news__item-checkbox-wrapper">
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">Информационная<br>безопасность</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">QA</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="news__item">
+          <p class="news__item-title">
+            Базы данных и машинное обучение
+          </p>
+          <div class="news__item-checkbox-wrapper">
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">DBA</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">DWH</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+              <p class="news__item-checkbox-text">Data science</p>
+              <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+              <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+          </div>
+          </div>
+        </div>
+        <div class="news__item">
+          <p class="news__item-title">
+            Продакт-менеджмент, дизайн, аналитика
+          </p>
+          <div class="news__item-checkbox-wrapper">
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">Продакт-менеджмент</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">Аналитика</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+              <p class="news__item-checkbox-text">Дизайн</p>
+              <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+              <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="news__item">
+          <p class="news__item-title">
+            Инфраструктура и Менеджмент
+          </p>
+          <div class="news__item-checkbox-wrapper">
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">PaaS</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">Management</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+              <p class="news__item-checkbox-text">DevOps</p>
+              <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+              <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="news__item">
+          <p class="news__item-title">
+            Мобильная разработка
+          </p>
+          <div class="news__item-checkbox-wrapper">
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">iOS</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">Android</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+            <div class="news__item-checkbox">
+              <p class="news__item-checkbox-text">iOS и Android</p>
+              <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+              <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="news__item">
+          <p class="news__item-title">
+            Фронтенд
+          </p>
+          <div class="news__item-checkbox-wrapper">
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">Фронтенд</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="news__item">
+          <p class="news__item-title">
+            Бэкенд
+          </p>
+          <div class="news__item-checkbox-wrapper">
+            <div class="news__item-checkbox">
+                <p class="news__item-checkbox-text">Бэкенд</p>
+                <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+                <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <button type="button" class="main__send-button main__send-button_disable">
+          Сохранить
+        </button>
+      </div>
+      <div class="vacancies vacancies_disabled">
+        <a class="vacancies__link" href="" target="_blank">
+          Стажировки в Авито
+          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
+        </a>
+        <a class="vacancies__link" href="" target="_blank">
+          Команда Авито
+          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
+        </a>
+        <a class="vacancies__link" href="" target="_blank">
+          Видео
+          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
+        </a>
+        <a class="vacancies__link" href="" target="_blank">
+          Статьи
+          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
+        </a>
+        <a class="vacancies__link" href="" target="_blank">
+          Юниты разработки
+          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="./vendor/mobile-detect.min.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
