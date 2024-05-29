@@ -43,7 +43,7 @@
         Выберите удобное время<br>для уведомлений
       </p>
       <div class="overlay__checkboxes">
-        <div class="overlay__checkbox">
+        <div class="overlay__checkbox overlay__checkbox_active">
           Мгновенно
           <img class="overlay__checkbox-arrow" src="./assets/images/overlay-checkbox-arrow.svg" alt="">
         </div>
@@ -60,7 +60,7 @@
           <img class="overlay__checkbox-arrow" src="./assets/images/overlay-checkbox-arrow.svg" alt="">
         </div>
       </div>
-      <button class="overlay__button" type="button">
+      <button class="overlay__button overlay__button_active" type="button">
         Сохранить
       </button>
     </div>
@@ -93,7 +93,7 @@
           </p>
           <div class="news__item-checkbox-wrapper">
             <div class="news__item-checkbox">
-                <p class="news__item-checkbox-text">Информационная<br>безопасность</p>
+                <p class="news__item-checkbox-text">Информационная безопасность</p>
                 <img class="news__item-checkbox-img news__item-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
                 <img class="news__item-checkbox-img news__item-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
             </div>
@@ -216,31 +216,41 @@
             </div>
           </div>
         </div>
-        <button type="button" class="main__send-button main__send-button_disable">
+        <button type="button" class="main__send-button">
           Сохранить
         </button>
       </div>
       <div class="vacancies vacancies_disabled">
-        <a class="vacancies__link" href="" target="_blank">
-          Стажировки в Авито
-          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
-        </a>
-        <a class="vacancies__link" href="" target="_blank">
-          Команда Авито
-          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
-        </a>
-        <a class="vacancies__link" href="" target="_blank">
-          Видео
-          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
-        </a>
-        <a class="vacancies__link" href="" target="_blank">
-          Статьи
-          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
-        </a>
-        <a class="vacancies__link" href="" target="_blank">
-          Юниты разработки
-          <img class="vacancies__link-arrow" src="./assets/images/link-arrow.png" alt="">
-        </a>
+        <div class="vacancies__content">
+          <div class="vacancies__link" href="" target="_blank">
+            Стажировки в Авито
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+          </div>
+          <div class="vacancies__link" href="" target="_blank">
+            Команда Авито
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+          </div>
+          <div class="vacancies__link" href="" target="_blank">
+            Видео
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+          </div>
+          <div class="vacancies__link" href="" target="_blank">
+            Статьи
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+          </div>
+          <div class="vacancies__link" href="" target="_blank">
+            Юниты разработки
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_disable" src="./assets/images/checkbox-disable.svg" alt="">
+            <img class="vacancies__link-checkbox-img vacancies__link-checkbox-img_enable" src="./assets/images/checkbox-enable.svg" alt="">
+          </div>
+        </div>
+        <button type="button" class="vacancies__send-btn">
+          Сохранить
+        </button>
       </div>
     </div>
   </div>

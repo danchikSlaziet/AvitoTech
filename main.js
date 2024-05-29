@@ -13,6 +13,8 @@ const overlayCloseButton = overlay.querySelector(".overlay-close");
 const finalPage = document.querySelector(".final-page");
 const finalPageExitButton = finalPage.querySelector('.final-page__button_exit');
 const finalPageTimeButton = finalPage.querySelector('.final-page__button_time');
+const vacanciesArray = document.querySelectorAll(".vacancies__link");
+const vacanciesButton = document.querySelector(".vacancies__send-btn");
 
 
 function parseQuery(queryString) {
@@ -96,34 +98,39 @@ checkboxesArray.forEach((elem) => {
         }
       });
       if (activeCheckboxes === 0) {
-        sendButton.classList.add('main__send-button_disable');
       }
     }
     else {
       elem.classList.add("news__item-checkbox_active");
-      sendButton.classList.remove('main__send-button_disable');
+    }
+  });
+});
+vacanciesArray.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    vibro();
+    if (elem.className.includes("active")) {
+      let activeVacanciesCheckboxes = 0;
+      elem.classList.remove("vacancies__link_active");
+      checkboxesArray.forEach((checkbox) => {
+        if (checkbox.className.includes('active')) {
+          activeVacanciesCheckboxes += 1;
+        }
+      });
+      if (activeVacanciesCheckboxes === 0) {
+      }
+    }
+    else {
+      elem.classList.add("vacancies__link_active");
     }
   });
 });
 overlayCheckboxes.forEach((elem) => {
   elem.addEventListener('click', () => {
     vibro();
-    if (elem.className.includes('active')) {
-      let activeCheckboxes = 0;
-      elem.classList.remove('overlay__checkbox_active');
-      overlayCheckboxes.forEach((checkbox) => {
-        if (checkbox.className.includes('active')) {
-          activeCheckboxes += 1;
-        }
-      });
-      if (activeCheckboxes === 0) {
-        overlayButton.classList.remove('overlay__button_active');
-      }
-    }
-    else {
-      elem.classList.add("overlay__checkbox_active");
-      overlayButton.classList.add('overlay__button_active');
-    }
+    overlayCheckboxes.forEach((checkbox) => {
+      checkbox.classList.remove("overlay__checkbox_active");
+    });
+    elem.classList.add('overlay__checkbox_active');
   });
 });
 overlayCloseButton.addEventListener('click', () => {
@@ -137,7 +144,9 @@ overlay.addEventListener("click", (evt) => {
 sendButton.addEventListener("click", () => {
   finalPage.classList.add("final-page_active");
 });
-
+vacanciesButton.addEventListener("click", () => {
+  finalPage.classList.add("final-page_active");
+});
 finalPageExitButton.addEventListener('click', () => {
   finalPage.classList.remove('final-page_active');
 });
@@ -156,19 +165,25 @@ let infoObject = {
 overlayButton.addEventListener('click', () => {
   checkboxesArray.forEach(checkbox => {
     if (checkbox.className.includes('active')) {
-      if (checkbox.innerText === 'Информационная\nбезопасность') {
-        infoObject.time.push('Информационная безопасность')
-      }
-      else {
-        infoObject.time.push(checkbox.innerText)
-      }
+      // if (checkbox.innerText === 'Информационная\nбезопасность') {
+      //   infoObject.subscribe.push('Информационная безопасность')
+      // }
+      // else {
+      //   infoObject.subscribe.push(checkbox.innerText)
+      // }
+      infoObject.subscribe.push(checkbox.innerText.trim());
     }
   })
   overlayCheckboxes.forEach(checkbox => {
     if (checkbox.className.includes('active')) {
-      infoObject.subscribe.push(checkbox.innerText)
+      infoObject.time.push(checkbox.innerText.trim())
     }
   });
+  vacanciesArray.forEach(vacancies => {
+    if (vacancies.className.includes('active')) {
+      infoObject.subscribe.push(vacancies.innerText.trim())
+    }
+  })
   console.log(infoObject)
   infoObject = {
     time: [],
