@@ -15,8 +15,14 @@ const finalPageExitButton = finalPage.querySelector('.final-page__button_exit');
 const finalPageTimeButton = finalPage.querySelector('.final-page__button_time');
 const vacanciesArray = document.querySelectorAll(".vacancies__link");
 const vacanciesButton = document.querySelector(".vacancies__send-btn");
-
-
+// отмена закрытия по свайпу (если скролла нет, то работает отлично, когда скролл есть - закрывается при проведении буквой Г, например слева направо и вниз)
+const overflow = 100;
+document.body.style.overflowY = 'hidden';
+document.body.style.marginTop = `${overflow}px`;
+document.body.style.height = window.innerHeight + overflow + "px";
+document.body.style.paddingBottom = `${overflow}px`;
+window.scrollTo(0, overflow);
+// отмена закрытия по свайпу
 function parseQuery(queryString) {
   let query = {};
   let pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
@@ -56,14 +62,6 @@ function vibro() {
     }
   }
 }
-
-
-const overflow = 100;
-document.body.style.overflowY = 'hidden';
-document.body.style.marginTop = `${overflow}px`;
-document.body.style.height = window.innerHeight + overflow + "px";
-document.body.style.paddingBottom = `${overflow}px`;
-window.scrollTo(0, overflow);
 
 
 timeButton.addEventListener('click', () => {
@@ -165,12 +163,6 @@ let infoObject = {
 overlayButton.addEventListener('click', () => {
   checkboxesArray.forEach(checkbox => {
     if (checkbox.className.includes('active')) {
-      // if (checkbox.innerText === 'Информационная\nбезопасность') {
-      //   infoObject.subscribe.push('Информационная безопасность')
-      // }
-      // else {
-      //   infoObject.subscribe.push(checkbox.innerText)
-      // }
       infoObject.subscribe.push(checkbox.innerText.trim());
     }
   })

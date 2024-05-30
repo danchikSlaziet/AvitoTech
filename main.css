@@ -172,6 +172,7 @@ a,a:hover{
   position: absolute;
   top: 0;
   left: 0;
+  animation: animateLeftImg 3s alternate ease-in-out infinite;
 }
 .navbar__help-2 {
   position: absolute;
@@ -179,6 +180,29 @@ a,a:hover{
   right: 0;
   bottom: -55px;
   width: 90px;
+  animation: animateRightImg 3s alternate ease-in-out infinite;
+}
+@keyframes animateLeftImg {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes animateRightImg {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 .navbar__time {
   position: absolute;
@@ -354,6 +378,7 @@ a,a:hover{
   transition: transform .24s ease;
 }
 .vacancies__send-btn:hover {
+  cursor: pointer;
   transform: translateY(-2px);
 }
 .vacancies__link {
@@ -365,6 +390,9 @@ a,a:hover{
   position: relative;
   z-index: 100;
   background-color: #FFF;
+}
+.vacancies__link:hover {
+  cursor: pointer;
 }
 .vacancies__link-checkbox-img {
   position: absolute;
