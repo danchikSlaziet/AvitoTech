@@ -158,12 +158,13 @@ finalPageTimeButton.addEventListener('click', () => {
 
 let infoObject = {
   time: [],
-  subscribe: []
+  career: [],
+  content: [],
 };
 overlayButton.addEventListener('click', () => {
   checkboxesArray.forEach(checkbox => {
     if (checkbox.className.includes('active')) {
-      infoObject.subscribe.push(checkbox.innerText.trim());
+      infoObject.content.push(checkbox.innerText.trim());
     }
   })
   overlayCheckboxes.forEach(checkbox => {
@@ -173,7 +174,7 @@ overlayButton.addEventListener('click', () => {
   });
   vacanciesArray.forEach(vacancies => {
     if (vacancies.className.includes('active')) {
-      infoObject.subscribe.push(vacancies.innerText.trim())
+      infoObject.career.push(vacancies.innerText.trim())
     }
   })
   console.log(infoObject)
