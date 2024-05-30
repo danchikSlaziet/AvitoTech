@@ -248,6 +248,10 @@ a,a:hover{
   color: #FFF;
 }
 .main__send-button {
+  position: sticky;
+  bottom: 20px;
+  left: 0;
+  z-index: 100;
   margin-top: 19px;
   width: 100%;
   outline: none;
@@ -361,11 +365,15 @@ a,a:hover{
   display: none;
 }
 .vacancies__send-btn {
+  position: sticky;
+  bottom: 20px;
+  left: 0;
+  z-index: 100;
   box-sizing: border-box;
   outline: none;
   border: none;
   width: 100%;
-  padding: 21px 7px;
+  padding: 21px 10px;
   color: #FFF;
   font-family: "Golos";
   font-size: 18px;
