@@ -180,7 +180,8 @@ overlayButton.addEventListener('click', () => {
   console.log(infoObject)
   infoObject = {
     time: [],
-    subscribe: []
+    career: [],
+    content: []
   }
   overlay.classList.remove("overlay_active");
 });
