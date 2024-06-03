@@ -285,7 +285,7 @@ function getInfo() {
   });
   overlayCheckboxes.forEach(checkbox => {
     if (checkbox.className.includes('active')) {
-      infoObject.time = checkbox.innerText.trim();
+      infoObject.time = checkbox.textContent.trim();
     }
   });
   vacanciesArray.forEach(vacancies => {
