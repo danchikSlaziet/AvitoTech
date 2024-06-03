@@ -406,6 +406,10 @@ a,a:hover{
   cursor: pointer;
   transform: translateY(-2px);
 }
+.vacancies__send-btn_disable {
+  pointer-events: none;
+  opacity: .5;
+}
 .vacancies__link {
   position: relative;
   box-sizing: border-box;
@@ -560,14 +564,19 @@ a,a:hover{
   line-height: 21.6px;
   text-align: center;
   transition: opacity .24s ease, transform .24s ease;
+  pointer-events: all;
+  opacity: 1;
+}
+.overlay__button_disable {
+  pointer-events: none;
+  opacity: .6;
 }
 .overlay__button:hover {
   cursor: pointer;
   transform: translateY(-2px);
 }
 .overlay__button_active {
-  pointer-events: all;
-  opacity: 1;
+
 }
 
 .final-page {

@@ -119,10 +119,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       if (data['career']) {
-
+        vacanciesArray.forEach(vacancies => {
+          vacancies.classList.remove('vacancies__link_active');
+        });
+        data['career'].forEach((elem) => {
+          vacanciesArray.forEach(vacancies => {
+            if (elem == vacancies.innerText.trim()) {
+              vacancies.classList.add('vacancies__link_active');
+            }
+          });
+        })
       }
       if (data['content']) {
-
+        checkboxesArray.forEach(checkbox => {
+          checkbox.classList.remove('news__item-checkbox_active');
+        });
+        data['content'].forEach((elem) => {
+          checkboxesArray.forEach((checkbox) => {
+            if (elem == checkbox.innerText.trim()) {
+              checkbox.classList.add('news__item-checkbox_active');
+            }
+          })
+        })
       }
     })
     .catch(err => console.log(err));
@@ -221,7 +239,16 @@ overlay.addEventListener("click", (evt) => {
   }
 });
 sendButton.addEventListener("click", () => {
-  finalPage.classList.add("final-page_active");
+  sendButton.classList.add('vacancies__send-btn_disable');
+  sendButton.textContent = 'Отправка...';
+  api.postUser(userChatId, getInfo())
+  .then((data) => {
+    console.log(data);
+    finalPage.classList.add("final-page_active");
+    sendButton.classList.remove('vacancies__send-btn_disable');
+    sendButton.textContent = 'Сохранить';
+  })
+  .catch(err => console.log(err));
 });
 vacanciesButton.addEventListener("click", () => {
   finalPage.classList.add("final-page_active");
@@ -236,13 +263,12 @@ finalPageTimeButton.addEventListener('click', () => {
   }, 200)
 });
 
-
-let infoObject = {
-  time: '',
-  career: [],
-  content: [],
-};
-overlayButton.addEventListener('click', () => {
+function getInfo() {
+  const infoObject = {
+    time: '',
+    career: [],
+    content: [],
+  };
   checkboxesArray.forEach(checkbox => {
     if (checkbox.className.includes('active')) {
       infoObject.content.push(checkbox.innerText.trim());
@@ -258,14 +284,19 @@ overlayButton.addEventListener('click', () => {
       infoObject.career.push(vacancies.innerText.trim())
     }
   });
-  api.postUser(userChatId, infoObject)
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
-  console.log(infoObject)
-  infoObject = {
-    time: '',
-    career: [],
-    content: []
-  }
+  return infoObject;
+}
+
+
+overlayButton.addEventListener('click', () => {
+  overlayButton.textContent = 'Отправка...';
+  overlayButton.classList.add("overlay__button_disable");
+  api.postUser(userChatId, getInfo())
+    .then((data) => {
+      console.log(data);
+      overlayButton.textContent = 'Сохранить';
+      overlayButton.classList.remove("overlay__button_disable");
+    })
+    .catch((err) => console.log(err));
   overlay.classList.remove("overlay_active");
 });
