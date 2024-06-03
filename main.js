@@ -51,7 +51,7 @@ class Api {
   }
 
   getUser(id) {
-    const url = this._baseUrl + 'get_user/' + `${id}`;
+    const url = this._baseUrl + 'get_user/' + `${id}/`;
     const options = {
       method: 'GET',
       mode: 'cors',
@@ -67,7 +67,7 @@ class Api {
   }
 
   postUser(id, data) {
-    const url = this._baseUrl + 'update_user/' + `${id}`;
+    const url = this._baseUrl + 'update_user/' + `${id}/`;
     const options = {
       method: 'POST',
       mode: 'cors',
