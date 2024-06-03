@@ -239,19 +239,28 @@ overlay.addEventListener("click", (evt) => {
   }
 });
 sendButton.addEventListener("click", () => {
-  sendButton.classList.add('vacancies__send-btn_disable');
+  sendButton.classList.add('main__send-button_disable');
   sendButton.textContent = 'Отправка...';
   api.postUser(userChatId, getInfo())
   .then((data) => {
     console.log(data);
     finalPage.classList.add("final-page_active");
-    sendButton.classList.remove('vacancies__send-btn_disable');
+    sendButton.classList.remove('main__send-button_disable');
     sendButton.textContent = 'Сохранить';
   })
   .catch(err => console.log(err));
 });
 vacanciesButton.addEventListener("click", () => {
-  finalPage.classList.add("final-page_active");
+  vacanciesButton.classList.add('vacancies__send-btn_disable');
+  vacanciesButton.textContent = 'Отправка...';
+  api.postUser(userChatId, getInfo())
+  .then((data) => {
+    console.log(data);
+    finalPage.classList.add("final-page_active");
+    vacanciesButton.classList.remove('vacancies__send-btn_disable');
+    vacanciesButton.textContent = 'Сохранить';
+  })
+  .catch(err => console.log(err));
 });
 finalPageExitButton.addEventListener('click', () => {
   finalPage.classList.remove('final-page_active');
@@ -284,6 +293,7 @@ function getInfo() {
       infoObject.career.push(vacancies.innerText.trim())
     }
   });
+  console.log({'infoObject': infoObject})
   return infoObject;
 }
 
