@@ -113,12 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
           checkbox.classList.remove('overlay__checkbox_active');
         });
         overlayCheckboxes.forEach(checkbox => {
-          if (data["time"] == checkbox.innerText.trim()) {
+          if (data["time"] == checkbox.textContent.trim()) {
             checkbox.classList.add('overlay__checkbox_active');
           }
         });
       }
-      if (data['career']) {
+      if (data['career'] && data['career'].length > 0) {
         vacanciesArray.forEach(vacancies => {
           vacancies.classList.remove('vacancies__link_active');
         });
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         })
       }
-      if (data['content']) {
+      if (data['content'] && data['content'].length > 0) {
         checkboxesArray.forEach(checkbox => {
           checkbox.classList.remove('news__item-checkbox_active');
         });
