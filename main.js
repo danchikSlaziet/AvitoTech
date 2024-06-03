@@ -109,7 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((data) => {
       console.log(data)
       if (data['time']) {
-
+        overlayCheckboxes.forEach(checkbox => {
+          checkbox.classList.remove('overlay__checkbox_active');
+        });
+        overlayCheckboxes.forEach(checkbox => {
+          if (data["time"] == checkbox.innerText.trim()) {
+            checkbox.classList.add('overlay__checkbox_active');
+          }
+        });
       }
       if (data['career']) {
 
@@ -231,7 +238,7 @@ finalPageTimeButton.addEventListener('click', () => {
 
 
 let infoObject = {
-  time: [],
+  time: '',
   career: [],
   content: [],
 };
@@ -240,23 +247,23 @@ overlayButton.addEventListener('click', () => {
     if (checkbox.className.includes('active')) {
       infoObject.content.push(checkbox.innerText.trim());
     }
-  })
+  });
   overlayCheckboxes.forEach(checkbox => {
     if (checkbox.className.includes('active')) {
-      infoObject.time.push(checkbox.innerText.trim())
+      infoObject.time = checkbox.innerText.trim();
     }
   });
   vacanciesArray.forEach(vacancies => {
     if (vacancies.className.includes('active')) {
       infoObject.career.push(vacancies.innerText.trim())
     }
-  })
+  });
   api.postUser(userChatId, infoObject)
     .then(data => console.log(data))
     .catch(err => console.log(err));
   console.log(infoObject)
   infoObject = {
-    time: [],
+    time: '',
     career: [],
     content: []
   }
