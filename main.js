@@ -32,6 +32,67 @@ function parseQuery(queryString) {
   }
   return query;
 }
+
+
+
+class Api {
+  constructor({baseUrl}) {
+    this._baseUrl = baseUrl;
+  }
+
+  _getFetch(url, options) {
+    return fetch(url, options)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка ${res.status}`)
+      });
+  }
+
+  getUser(id) {
+    const url = this._baseUrl + 'get_user/' + `${id}`;
+    const options = {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+    }
+    return this._getFetch(url, options);
+  }
+
+  postUser(id, data) {
+    const url = this._baseUrl + 'update_user/' + `${id}`;
+    const options = {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify(data)
+    }
+    return this._getFetch(url, options);
+  }
+}
+
+const api = new Api({
+  baseUrl: 'https://avitotg.grimdev.ru/api/',
+});
+
+
+
+
+
+let userChatId;
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     firstPage.classList.remove('first-page_active');
@@ -44,8 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
   app.expand();
   app.ready();
   userChatId = user_data["id"];
+  api.getUser(userChatId)
+    .then((data) => {
+      console.log(data)
+    })
+    .catch(err => console.log(err));
 });
-
 
 function vibro() {
   let detect = new MobileDetect(window.navigator.userAgent);
