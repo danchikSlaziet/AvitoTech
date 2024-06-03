@@ -108,6 +108,15 @@ document.addEventListener('DOMContentLoaded', () => {
   api.getUser(userChatId)
     .then((data) => {
       console.log(data)
+      if (data['time']) {
+
+      }
+      if (data['career']) {
+
+      }
+      if (data['content']) {
+
+      }
     })
     .catch(err => console.log(err));
 });
@@ -242,6 +251,9 @@ overlayButton.addEventListener('click', () => {
       infoObject.career.push(vacancies.innerText.trim())
     }
   })
+  api.postUser(userChatId, infoObject)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
   console.log(infoObject)
   infoObject = {
     time: [],
