@@ -15,6 +15,7 @@ const finalPageExitButton = finalPage.querySelector('.final-page__button_exit');
 const finalPageTimeButton = finalPage.querySelector('.final-page__button_time');
 const vacanciesArray = document.querySelectorAll(".vacancies__link");
 const vacanciesButton = document.querySelector(".vacancies__send-btn");
+const snackbar = document.querySelector('.snackbar');
 // отмена закрытия по свайпу (если скролла нет, то работает отлично, когда скролл есть - закрывается при проведении буквой Г, например слева направо и вниз)
 const overflow = 100;
 document.body.style.overflowY = 'hidden';
@@ -266,10 +267,11 @@ finalPageExitButton.addEventListener('click', () => {
   finalPage.classList.remove('final-page_active');
 });
 finalPageTimeButton.addEventListener('click', () => {
-  finalPage.classList.remove('final-page_active');
-  setTimeout(() => {
-    overlay.classList.add("overlay_active");
-  }, 200)
+  // finalPage.classList.remove('final-page_active');
+  // setTimeout(() => {
+  //   overlay.classList.add("overlay_active");
+  // }, 200)
+  overlay.classList.add("overlay_active");
 });
 
 function getInfo() {
@@ -306,7 +308,11 @@ overlayButton.addEventListener('click', () => {
       console.log(data);
       overlayButton.textContent = 'Сохранить';
       overlayButton.classList.remove("overlay__button_disable");
+      overlay.classList.remove("overlay_active");
+      snackbar.classList.add('snackbar_active');
+      setTimeout(() => {
+        snackbar.classList.remove("snackbar_active");
+      }, 600)
     })
     .catch((err) => console.log(err));
-  overlay.classList.remove("overlay_active");
 });

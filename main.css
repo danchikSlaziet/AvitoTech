@@ -67,6 +67,33 @@ a,a:hover{
   text-decoration: none;
 }
 
+/* ===================== SNACKBAR ======================= */
+.snackbar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background-color: #000;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  transition: transform .24s linear;
+  z-index: 10000;
+}
+.snackbar_active {
+  transform: translate(-50%, 20px);
+}
+.snackbar__text {
+  outline: none;
+  box-sizing: border-box;
+  padding: 21px 10px;
+  color: #FFF;
+  font-family: "Golos";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  text-align: center;
+  border: none;
+}
 /* ==================== FIRST PAGE ======================= */
 .first-page {
   font-family: "Golos";
@@ -469,7 +496,7 @@ a,a:hover{
   visibility: hidden;
   opacity: 0;
   transition: visibility .24s, opacity .24s linear;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
