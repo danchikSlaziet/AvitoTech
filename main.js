@@ -303,6 +303,8 @@ function getInfo() {
 overlayButton.addEventListener('click', () => {
   overlayButton.textContent = 'Отправка...';
   overlayButton.classList.add("overlay__button_disable");
+
+
   api.postUser(userChatId, getInfo())
     .then((data) => {
       console.log(data);
@@ -312,7 +314,7 @@ overlayButton.addEventListener('click', () => {
       snackbar.classList.add('snackbar_active');
       setTimeout(() => {
         snackbar.classList.remove("snackbar_active");
-      }, 600)
+      }, 1600)
     })
     .catch((err) => console.log(err));
 });

@@ -80,7 +80,7 @@ a,a:hover{
   z-index: 10000;
 }
 .snackbar_active {
-  transform: translate(-50%, 20px);
+  transform: translate(-50%, 120px);
 }
 .snackbar__text {
   outline: none;
