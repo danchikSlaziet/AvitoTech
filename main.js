@@ -136,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         data['content'].forEach((elem) => {
           checkboxesArray.forEach((checkbox) => {
+            console.log(elem)
+            console.log(checkbox.innerText.trim())
             if (elem == checkbox.innerText.trim()) {
               checkbox.classList.add('news__item-checkbox_active');
             }
